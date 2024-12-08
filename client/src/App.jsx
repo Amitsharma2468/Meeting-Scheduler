@@ -4,6 +4,8 @@ import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
 import SignUp from './pages/Signup';
 import Login from './pages/Login';
+import HostTimeSlot from './pages/HostTimeSlot';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/hosttimeslot" element={<HostTimeSlot />} />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
     </BrowserRouter>
   );
