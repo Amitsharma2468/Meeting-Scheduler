@@ -3,22 +3,22 @@ const Slot = require('../models/Slot');
 
 // Controller for booking a slot
 exports.bookSlot = async (req, res) => {
-  const { slot_id } = req.body;
+  const { id } = req.body;
   const guest_id = req.user.id; // Assuming the user's ID is stored in req.user (from authMiddleware)
 
-  if (!slot_id) {
+  if (!id) {
     return res.status(400).json({ message: 'Slot ID is required' });
   }
 
   try {
     // Check if the slot is available
-    const slot = await Slot.getById(slot_id);
+    const slot = await Slot.getById(id);
     if (!slot || slot.booked === 1) {
       return res.status(400).json({ message: 'Slot is already booked or does not exist' });
     }
 
     // Book the slot
-    await Booking.bookSlot(slot_id, guest_id);
+    await Booking.bookSlot(id, guest_id);
 
     res.status(200).json({ message: 'Slot successfully booked' });
   } catch (error) {
