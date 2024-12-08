@@ -70,30 +70,31 @@ const LandingPage = () => {
       </section>
 
      {/* How It Works Section */}
+{/* How It Works Section */}
 <section className="py-16 bg-white">
   <div className="container mx-auto text-center">
-    <h2 className="text-3xl font-semibold mb-8 text-gray-900 bg-green-100 p-2 inline-block rounded-md">How It Works</h2>
+    <h2 className="text-3xl font-semibold mb-8 text-gray-900  p-2 inline-block rounded-md">How It Works</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       
       <div className="p-6 hover:shadow-lg hover:bg-green-50 transition duration-300 ease-in-out rounded-lg">
-        <div className="mb-4 text-4xl text-green-600">
-          <i className="fas fa-user-plus"></i> {/* Icon for Sign Up */}
+        <div className="mb-4">
+          <img src="https://img.freepik.com/premium-photo/man-using-laptop-computer-sign-up-log-username-password-virtual-touch-screen_55997-2487.jpg?ga=GA1.1.579235623.1730386950&semt=ais_hybrid" alt="Sign Up" className="w-full h-full mx-auto"/>
         </div>
         <h3 className="text-xl font-semibold mb-2 text-gray-800">1. Sign Up</h3>
         <p className="text-gray-600">Create an account as a Host or Guest to get started.</p>
       </div>
 
       <div className="p-6 hover:shadow-lg hover:bg-green-50 transition duration-300 ease-in-out rounded-lg">
-        <div className="mb-4 text-4xl text-green-600">
-          <i className="fas fa-calendar-alt"></i> {/* Icon for Choose a Slot */}
+        <div className="mb-4">
+          <img src="https://img.freepik.com/free-photo/young-man-suit-hat-pointing-alarm-clock-looking-merry-front-view_176474-23088.jpg?ga=GA1.1.579235623.1730386950&semt=ais_hybrid" alt="Choose a Slot" className="w-full h-full mx-auto"/>
         </div>
         <h3 className="text-xl font-semibold mb-2 text-gray-800">2. Choose a Slot</h3>
         <p className="text-gray-600">Browse hosts, view available time slots, and pick your preferred time.</p>
       </div>
 
       <div className="p-6 hover:shadow-lg hover:bg-green-50 transition duration-300 ease-in-out rounded-lg">
-        <div className="mb-4 text-4xl text-green-600">
-          <i className="fas fa-check-circle"></i> {/* Icon for Book & Relax */}
+        <div className="mb-4">
+          <img src="https://img.freepik.com/free-photo/old-lady-her-60s-using-modern-technolgy-cozy-living-space-while-her-husband-reads-background_482257-22300.jpg?ga=GA1.1.579235623.1730386950&semt=ais_hybrid" alt="Book & Relax" className="w-full h-full mx-auto"/>
         </div>
         <h3 className="text-xl font-semibold mb-2 text-gray-800">3. Book & Relax</h3>
         <p className="text-gray-600">Confirm your booking and relax! Manage everything in your dashboard.</p>
@@ -102,6 +103,7 @@ const LandingPage = () => {
     </div>
   </div>
 </section>
+
 
 
       {/* Footer */}
