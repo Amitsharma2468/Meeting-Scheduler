@@ -27,14 +27,23 @@ exports.createSlot = async (req, res) => {
 
 
 exports.getAvailableSlots = async (req, res) => {
-  try {
-    const slots = await Slot.getAvailable();
-    res.status(200).json(slots);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Error fetching available slots' });
-  }
-};
+    try {
+      const allSlots = await Slot.getAll(); 
+  
+      // Fetch the booked slots to filter out
+      const bookedSlots = await Booking.getBookedSlots();
+  
+      // Filter available slots (slots not booked)
+      const availableSlots = allSlots.filter(slot => 
+        !bookedSlots.some(bookedSlot => bookedSlot.slotId === slot.id)
+      );
+  
+      res.status(200).json(availableSlots);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error fetching available slots' });
+    }
+  };
 
 exports.updateSlot = async (req, res) => {
     const { slotId, startTime, endTime } = req.body;
