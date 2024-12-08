@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Navbar = () => {
   return (
@@ -11,17 +12,23 @@ const Navbar = () => {
 
         {/* Menu Links */}
         <ul className="hidden md:flex space-x-6 text-black">
-          <li className="hover:text-green-500"><a href="#about">About Us</a></li>
-          <li className="hover:text-green-500"><a href="#dashboard">Dashboard</a></li>
-          <li className="hover:text-green-500"><a href="#contact">Contact</a></li>
+          <li className="hover:text-green-500">
+            <Link to="/about">About Us</Link> {/* Use Link for routing */}
+          </li>
+          <li className="hover:text-green-500">
+            <Link to="/dashboard">Dashboard</Link> {/* Use Link for routing */}
+          </li>
+          <li className="hover:text-green-500">
+            <Link to="/contact">Contact</Link> {/* Use Link for routing */}
+          </li>
         </ul>
 
         {/* Call-to-Action Buttons */}
         <div className="flex items-center space-x-4">
-          <a href="/login" className="hover:text-green-500">Log In</a>
-          <a href="/signup" className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+          <Link to="/login" className="hover:text-green-500">Log In</Link> {/* Use Link for routing */}
+          <Link to="/signup" className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
