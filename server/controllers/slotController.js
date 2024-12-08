@@ -3,22 +3,20 @@ const Booking = require('../models/Booking');
 
 
 exports.createSlot = async (req, res) => {
-  const {host_id, startTime, endTime } = req.body;
-
+    const { host_id, startTime, endTime } = req.body;
   
-  if (!startTime || !endTime) {
-    return res.status(400).json({ message: 'Start time and End time are required' });
-  }
-
-  try {
-    
-    const startTimeUTC = new Date(startTime).toISOString();
-    const endTimeUTC = new Date(endTime).toISOString();
-
-    
-    const newSlot = await Slot.create(host_id, startTimeUTC, endTimeUTC);
-
-    console.log("New Slot Created:", {
+    if (!startTime || !endTime) {
+      return res.status(400).json({ message: 'Start time and End time are required' });
+    }
+  
+    try {
+      const startTimeUTC = new Date(startTime).toISOString();
+      const endTimeUTC = new Date(endTime).toISOString();
+  
+      // Create a new slot in the database
+      const newSlot = await Slot.create(host_id, startTimeUTC, endTimeUTC);
+  
+      console.log("New Slot Created:", {
         id: newSlot.id,
         host_id: newSlot.host_id,
         start_time: newSlot.start_time,
@@ -26,14 +24,24 @@ exports.createSlot = async (req, res) => {
         created_at: newSlot.created_at,
         updated_at: newSlot.updated_at,
       });
-    
-
-    res.status(201).json({ message: 'Slot created successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Error creating slot' });
-  }
-};
+  
+      // Send the created slot details in the response
+      res.status(201).json({
+        message: 'Slot created successfully',
+        slot: {
+          id: newSlot.id,
+          host_id: newSlot.host_id,
+          start_time: newSlot.start_time,
+          end_time: newSlot.end_time,
+          created_at: newSlot.created_at,
+          updated_at: newSlot.updated_at,
+        },
+      });
+    } catch (error) {
+      console.error('Error creating slot:', error);
+      res.status(500).json({ message: 'Error creating slot' });
+    }
+  };
 
 
 exports.getAvailableSlots = async (req, res) => {
