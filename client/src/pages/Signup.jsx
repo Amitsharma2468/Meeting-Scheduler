@@ -28,14 +28,14 @@ const SignUp = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="bg-white/80 shadow-lg rounded-lg p-8 max-w-md w-full border">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+      <div className="bg-white/70 shadow-lg rounded-lg p-8 max-w-md w-full border backdrop-blur-sm">
+        <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
           Create Your Account
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Field */}
           <div>
-            <label htmlFor="name" className="block text-gray-700 font-medium">
+            <label htmlFor="name" className="block text-gray-800 font-semibold mb-2">
               Name
             </label>
             <input
@@ -45,14 +45,14 @@ const SignUp = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              placeholder="Enter your name"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="Enter your full name"
+              className="w-full px-4 py-3 text-gray-800 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
             />
           </div>
 
           {/* Email Field */}
           <div>
-            <label htmlFor="email" className="block text-gray-700 font-medium">
+            <label htmlFor="email" className="block text-gray-800 font-semibold mb-2">
               Email
             </label>
             <input
@@ -62,8 +62,8 @@ const SignUp = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="Enter your email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="Enter your email address"
+              className="w-full px-4 py-3 text-gray-800 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
             />
           </div>
 
@@ -71,7 +71,7 @@ const SignUp = () => {
           <div>
             <label
               htmlFor="password"
-              className="block text-gray-700 font-medium"
+              className="block text-gray-800 font-semibold mb-2"
             >
               Password
             </label>
@@ -82,14 +82,14 @@ const SignUp = () => {
               value={formData.password}
               onChange={handleChange}
               required
-              placeholder="Create a password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="Create a secure password"
+              className="w-full px-4 py-3 text-gray-800 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
             />
           </div>
 
           {/* Role Selection */}
           <div>
-            <label htmlFor="role" className="block text-gray-700 font-medium">
+            <label htmlFor="role" className="block text-gray-800 font-semibold mb-2">
               Role
             </label>
             <select
@@ -97,7 +97,7 @@ const SignUp = () => {
               name="role"
               value={formData.role}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-3 text-gray-800 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
             >
               <option value="User">User</option>
               <option value="Admin">Admin</option>
@@ -109,7 +109,7 @@ const SignUp = () => {
           <div>
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700 transition-all duration-300"
+              className="w-full bg-green-500 text-white font-semibold text-lg py-3 rounded-lg shadow-md hover:bg-green-600 hover:shadow-lg transition-all duration-300"
             >
               Sign Up
             </button>
@@ -117,9 +117,9 @@ const SignUp = () => {
         </form>
 
         {/* Login Redirect */}
-        <p className="text-center text-gray-700 mt-4">
+        <p className="text-center text-gray-800 mt-4">
           Already have an account?{" "}
-          <a href="/login" className="text-indigo-600 hover:underline">
+          <a href="/login" className="text-green-600 font-semibold hover:underline">
             Log in
           </a>
         </p>

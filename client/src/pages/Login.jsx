@@ -18,15 +18,22 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="bg-gray-100 shadow-lg rounded-lg p-8 max-w-md w-full">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Welcome Back!
+    <div
+      className="min-h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: "url('businessman-working-laptop.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="bg-white/70 shadow-lg rounded-lg p-8 max-w-md w-full border backdrop-blur-sm">
+        <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
+          Log In to Your Account
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email Field */}
           <div>
-            <label htmlFor="email" className="block text-gray-600 font-medium">
+            <label htmlFor="email" className="block text-gray-800 font-semibold mb-2">
               Email
             </label>
             <input
@@ -36,8 +43,8 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="Enter your email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Enter your email address"
+              className="w-full px-4 py-3 text-gray-800 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
             />
           </div>
 
@@ -45,7 +52,7 @@ const Login = () => {
           <div>
             <label
               htmlFor="password"
-              className="block text-gray-600 font-medium"
+              className="block text-gray-800 font-semibold mb-2"
             >
               Password
             </label>
@@ -57,7 +64,7 @@ const Login = () => {
               onChange={handleChange}
               required
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-3 text-gray-800 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
             />
           </div>
 
@@ -65,18 +72,18 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700 transition-all duration-300"
+              className="w-full bg-green-500 text-white font-semibold text-lg py-3 rounded-lg shadow-md hover:bg-green-600 hover:shadow-lg transition-all duration-300"
             >
               Log In
             </button>
           </div>
         </form>
 
-        {/* Sign-Up Redirect */}
-        <p className="text-center text-gray-600 mt-4">
+        {/* Sign Up Redirect */}
+        <p className="text-center text-gray-800 mt-4">
           Don't have an account?{" "}
-          <a href="/signup" className="text-indigo-600 hover:underline">
-            Sign up
+          <a href="/signup" className="text-green-600 font-semibold hover:underline">
+            Sign Up
           </a>
         </p>
       </div>
