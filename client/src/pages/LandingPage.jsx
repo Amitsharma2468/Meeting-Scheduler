@@ -105,6 +105,49 @@ const LandingPage = () => {
   </div>
 </section>
 
+{/* Testimonials Section */}
+<section className="py-16 bg-gray-100">
+  <div className="max-w-screen-xl mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-8 uppercase">
+      What Our Users Say
+    </h2>
+    <div className="grid md:grid-cols-2 gap-8">
+      {/* Testimonial 1 */}
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <p className="text-gray-600 italic">
+          "The Meeting Scheduler has made it so easy for me to manage my available slots. I can now track all my bookings in one place!"
+        </p>
+        <h3 className="mt-4 text-xl font-semibold">- Maria H. (Host)</h3>
+      </div>
+
+      {/* Testimonial 2 */}
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <p className="text-gray-600 italic">
+          "Booking a meeting with my mentor has never been this simple. I can see all available slots at a glance and choose a time that works for me."
+        </p>
+        <h3 className="mt-4 text-xl font-semibold">- Ahmed R. (Guest)</h3>
+      </div>
+
+      {/* Testimonial 3 */}
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <p className="text-gray-600 italic">
+          "This platform has streamlined my scheduling process. I no longer have to manage multiple emails for booking meetings."
+        </p>
+        <h3 className="mt-4 text-xl font-semibold">- Sarah K. (Host)</h3>
+      </div>
+
+      {/* Testimonial 4 */}
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <p className="text-gray-600 italic">
+          "The user-friendly interface and quick booking process make it a must-have tool for guests like me. Highly recommend it!"
+        </p>
+        <h3 className="mt-4 text-xl font-semibold">- John D. (Guest)</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 
       {/* Footer */}
