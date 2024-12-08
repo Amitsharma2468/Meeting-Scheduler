@@ -10,19 +10,22 @@ const LandingPage = () => {
       <Navbar/>
 
       {/* Hero Section */}
-     <section
-  className="text-center py-20 bg-cover bg-center"
+  <section
+  className="text-center py-20 bg-cover bg-center relative"
   style={{
     backgroundImage: "url('https://media.istockphoto.com/id/2037006388/photo/technology-and-financial-advisory-services-concept-business-teamwork-and-working-on-digital.jpg?s=612x612&w=0&k=20&c=4zt4f-9rVD9Q_8ii_ijAmpHnzhrxWZHWNQ5ZmL8bo2Y=')",
-    backgroundSize: 'cover', // Ensures the image covers the section fully
-    backgroundPosition: 'center', // Centers the image
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: 'calc(100vh - 80px)', // Adjusting height after navbar (assuming navbar height is 80px)
   }}
 >
-  <div className="container mx-auto">
-    <h1 className="text-5xl font-bold leading-tight mb-6 text-white">
+  <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay to reduce image brightness */}
+  
+  <div className="container mx-auto relative z-10">
+    <h1 className="text-5xl font-bold leading-tight mb-6 text-white mt-15">
       Schedule Your Meetings with Ease
     </h1>
-    <p className="text-lg mb-8 text-white opacity-80">
+    <p className="text-lg mb-8 text-white opacity-90">
       Organize your time efficiently, book appointments, and manage your meetings seamlessly.
     </p>
     <a
@@ -33,6 +36,7 @@ const LandingPage = () => {
     </a>
   </div>
 </section>
+
 
 
 
