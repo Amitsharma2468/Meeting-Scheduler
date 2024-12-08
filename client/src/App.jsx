@@ -1,9 +1,21 @@
-export default function App() {
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+
+
+function App() {
   return (
-    <div className="h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">
-        Tailwind CSS with React and Vite!
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+
+       
+       
+       
+        
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+export default App;
