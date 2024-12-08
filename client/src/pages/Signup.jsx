@@ -6,7 +6,7 @@ const SignUp = () => {
     name: "",
     email: "",
     password: "",
-    role: "User",
+    role: "guest", // Default role is guest
   });
 
   const [message, setMessage] = useState("");
@@ -123,9 +123,8 @@ const SignUp = () => {
               onChange={handleChange}
               className="w-full px-4 py-3 text-gray-800 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"
             >
-              <option value="User">User</option>
-              <option value="Admin">Admin</option>
-              <option value="Moderator">Moderator</option>
+              <option value="host">host</option>
+              <option value="guest">guest</option>
             </select>
           </div>
 

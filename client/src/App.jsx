@@ -8,6 +8,10 @@ import HostTimeSlot from './pages/HostTimeSlot';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import BookingPage from './pages/BookingPage';
+import HostList from './pages/HostList';
+import MeetingSlots from './pages/MeetingSlots';
+import SearchBar from './pages/SearchBar';
+import Host from './pages/Host';
 
 function App() {
   return (
@@ -21,6 +25,12 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/bookingpage" element={<BookingPage />} />
+        <Route path="/hostlist" element={<HostList />} />
+        <Route path="/meetingslots" element={<MeetingSlots />} />
+        <Route path="/searchbar" element={<SearchBar />} />
+        <Route path="/host" element={<Host />} />
+        
+
       </Routes>
     </BrowserRouter>
   );

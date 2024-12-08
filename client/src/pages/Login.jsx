@@ -1,20 +1,62 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login Data Submitted: ", formData);
-    // Add form submission logic here (API call or state update)
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/auth/login",
+        formData
+      );
+
+      console.log("Login Response:", response.data);
+
+      const { token, user } = response.data;
+
+      if (token && user?.role) {
+        // Save the token in localStorage
+        localStorage.setItem("authToken", token);
+
+        // Navigate based on the role
+        if (user.role === "host") {
+          navigate("/hosttimeslot"); // Redirect to host page
+        } else if (user.role === "guest") {
+          navigate("/bookingpage"); // Redirect to guest page
+        } else {
+          setError("Invalid user role. Please contact support.");
+        }
+      } else {
+        setError("Invalid server response. Please try again.");
+      }
+    } catch (error) {
+      console.error("Login Error:", error);
+
+      if (error.response && error.response.data) {
+        setError(error.response.data.message || "An error occurred. Please try again.");
+      } else {
+        setError("Network error or server not reachable.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,6 +72,9 @@ const Login = () => {
         <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
           Log In to Your Account
         </h2>
+        {error && (
+          <p className="text-red-600 text-center mb-4 font-semibold">{error}</p>
+        )}
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email Field */}
           <div>
@@ -72,9 +117,12 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="w-full bg-green-500 text-white font-semibold text-lg py-3 rounded-lg shadow-md hover:bg-green-600 hover:shadow-lg transition-all duration-300"
+              disabled={loading}
+              className={`w-full bg-green-500 text-white font-semibold text-lg py-3 rounded-lg shadow-md hover:bg-green-600 hover:shadow-lg transition-all duration-300 ${
+                loading ? "opacity-50" : ""
+              }`}
             >
-              Log In
+              {loading ? "Logging in..." : "Log In"}
             </button>
           </div>
         </form>
