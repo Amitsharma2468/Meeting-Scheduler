@@ -17,6 +17,7 @@ exports.createSlot = async (req, res) => {
 
     
     await Slot.create(host_id, startTimeUTC, endTimeUTC);
+    
 
     res.status(201).json({ message: 'Slot created successfully' });
   } catch (error) {
@@ -37,9 +38,9 @@ exports.getAvailableSlots = async (req, res) => {
 };
 
 exports.updateSlot = async (req, res) => {
-    const { slotId, startTime, endTime } = req.body;
+    const { id, startTime, endTime } = req.body;
   
-    if (!slotId || !startTime || !endTime) {
+    if (!id || !startTime || !endTime) {
       return res.status(400).json({ message: 'Slot ID, Start time, and End time are required' });
     }
   
@@ -47,7 +48,7 @@ exports.updateSlot = async (req, res) => {
       const startTimeUTC = new Date(startTime).toISOString();
       const endTimeUTC = new Date(endTime).toISOString();
   
-      const slot = await Slot.getById(slotId);
+      const slot = await Slot.getById(id);
       if (!slot) {
         return res.status(404).json({ message: 'Slot not found' });
       }
@@ -56,7 +57,7 @@ exports.updateSlot = async (req, res) => {
         return res.status(403).json({ message: 'You are not authorized to update this slot' });
       }
   
-      await Slot.update(slotId, startTimeUTC, endTimeUTC);
+      await Slot.update(id, startTimeUTC, endTimeUTC);
       res.status(200).json({ message: 'Slot updated successfully' });
     } catch (error) {
       console.error(error);
@@ -65,14 +66,14 @@ exports.updateSlot = async (req, res) => {
   };
   
   exports.deleteSlot = async (req, res) => {
-    const { slotId } = req.body;
+    const { id } = req.body;
   
-    if (!slotId) {
+    if (!id) {
       return res.status(400).json({ message: 'Slot ID is required' });
     }
   
     try {
-      const slot = await Slot.getById(slotId);
+      const slot = await Slot.getById(id);
       if (!slot) {
         return res.status(404).json({ message: 'Slot not found' });
       }
@@ -81,7 +82,7 @@ exports.updateSlot = async (req, res) => {
         return res.status(403).json({ message: 'You are not authorized to delete this slot' });
       }
   
-      await Slot.delete(slotId);
+      await Slot.delete(id);
       res.status(200).json({ message: 'Slot deleted successfully' });
     } catch (error) {
       console.error(error);
