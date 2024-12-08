@@ -12,12 +12,12 @@ router.post('/slots',   createSlot);
 router.get('/slots', getAvailableSlots);
 
 // Route to book a slot (only accessible by guests)
-router.post('/book', authenticate, authorize('guest'), bookSlot);
+router.post('/book',  bookSlot);
 
 // Route to update a slot (only accessible by hosts)
-router.put('/slots/:id', authenticate, updateSlot);
+router.put('/slots/:id',  updateSlot);
 
 // Route to delete a slot (only accessible by hosts)
-router.delete('/slots/:id', authenticate,  deleteSlot);
+router.delete('/slots/:id', deleteSlot);
 
 module.exports = router;

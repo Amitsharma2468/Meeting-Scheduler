@@ -74,16 +74,19 @@ exports.updateSlot = async (req, res) => {
         return res.status(403).json({ message: 'You are not authorized to update this slot' });
       }
   
-      await Slot.update(id, startTimeUTC, endTimeUTC);
-      res.status(200).json({ message: 'Slot updated successfully' });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Error updating slot' });
-    }
-  };
+      const updatedSlot = await Slot.getById(id);
+    res.status(200).json({
+      message: 'Slot updated successfully',
+      slot: updatedSlot,
+    });
+  } catch (error) {
+    console.error('Error updating slot:', error);
+    res.status(500).json({ message: 'Error updating slot' });
+  }
+};
   
-  exports.deleteSlot = async (req, res) => {
-    const { id } = req.body;
+exports.deleteSlot = async (req, res) => {
+    const { id } = req.params; // Use route parameter for slot ID
   
     if (!id) {
       return res.status(400).json({ message: 'Slot ID is required' });
@@ -102,10 +105,10 @@ exports.updateSlot = async (req, res) => {
       await Slot.delete(id);
       res.status(200).json({ message: 'Slot deleted successfully' });
     } catch (error) {
-      console.error(error);
+      console.error('Error deleting slot:', error);
       res.status(500).json({ message: 'Error deleting slot' });
     }
-
   };
+  
 
 
