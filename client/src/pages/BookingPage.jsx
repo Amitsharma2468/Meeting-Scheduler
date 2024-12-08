@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import HostList from './pages/HostList';
-import MeetingSlots from './pages/MeetingSlots';
-import SearchBar from './pages/SearchBar';
-import TimezoneSelector from './pages/TimezoneSelector';
+import HostList from './HostList';
+import MeetingSlots from './MeetingSlots';
+import SearchBar from './SearchBar';
+import TimezoneSelector from './TimezoneSelector';
 
 const BookingPage = () => {
   const [selectedHost, setSelectedHost] = useState(null);
