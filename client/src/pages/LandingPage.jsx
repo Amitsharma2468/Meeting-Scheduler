@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import 'font-awesome/css/font-awesome.min.css';
@@ -29,12 +30,12 @@ const LandingPage = () => {
     <p className="text-lg mb-8 text-white opacity-90">
       Organize your time efficiently, book appointments, and manage your meetings seamlessly.
     </p>
-    <a
-      href="/signIn"
-      className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-green-700"
-    >
-      Get Started
-    </a>
+   <Link 
+  to="/login" 
+  className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-green-700"
+>
+  Get Started
+</Link>
   </div>
 </section>
 
@@ -61,7 +62,7 @@ const LandingPage = () => {
 
             <div className="p-6 bg-white shadow-lg rounded-lg">
               <img src="https://img.freepik.com/premium-photo/calendar-computer-software-application-modish-schedule-planning_31965-61622.jpg?ga=GA1.1.579235623.1730386950&semt=ais_hybrid" alt="Manage" className="w-full mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Host Management</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Host Time Slot Management</h3>
               <p className="text-gray-600">Manage your time slots, add new ones, and delete them anytime.</p>
             </div>
 
