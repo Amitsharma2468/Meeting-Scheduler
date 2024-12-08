@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -8,15 +9,28 @@ const SignUp = () => {
     role: "User",
   });
 
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted: ", formData);
-    // Add form submission logic here (API call or state update)
+    try {
+      const response = await axios.post("http://localhost:3000/api/auth/register", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setMessage(response.data.message);
+      setError(""); // Clear error if request is successful
+    } catch (err) {
+      setError(err.response?.data?.message || "An error occurred");
+      setMessage(""); // Clear message if there's an error
+    }
   };
 
   return (
@@ -32,6 +46,16 @@ const SignUp = () => {
         <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
           Create Your Account
         </h2>
+        {message && (
+          <p className="text-center text-green-600 font-semibold mb-4">
+            {message}
+          </p>
+        )}
+        {error && (
+          <p className="text-center text-red-600 font-semibold mb-4">
+            {error}
+          </p>
+        )}
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Field */}
           <div>
