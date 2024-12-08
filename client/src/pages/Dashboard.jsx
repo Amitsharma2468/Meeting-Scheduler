@@ -1,101 +1,135 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";  // Import Navbar
-import Footer from "./Footer";  // Import Footer
-import Calendar from 'react-calendar';  // Import the Calendar component
-import 'react-calendar/dist/Calendar.css'; // Import Calendar styles
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 const Dashboard = () => {
-  const [date, setDate] = useState(new Date());  // Set state to manage calendar date
+  const [date, setDate] = useState(new Date());
 
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar */}
-      <Navbar />  {/* Use Navbar component */}
+      <Navbar />
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        {/* Profile Picture */}
-        <section className="bg-white shadow rounded-lg p-6 mb-8 flex items-center space-x-4">
-          <img 
-            src="https://via.placeholder.com/100" 
-            alt="Profile" 
-            className="w-24 h-24 rounded-full object-cover"
-          />
-          <div>
-            <h2 className="text-xl font-bold text-gray-800">Welcome, User!</h2>
-            <p className="text-gray-600 mt-2">Here’s your personalized dashboard.</p>
-          </div>
-        </section>
-
-        {/* Welcome Section */}
-        <section className="bg-white shadow rounded-lg p-6">
-          <h2 className="text-xl font-bold text-gray-800">Welcome to MeetingMate!</h2>
-          <p className="text-gray-600 mt-2">
-            Plan your day and manage your meetings efficiently with MeetingMate.
+      <main className="container mx-auto px-4 py-8 space-y-12">
+        {/* Hero Section */}
+        <section className="bg-indigo-600 text-white rounded-lg shadow p-8 text-center">
+          <h1 className="text-3xl font-bold mb-4">Welcome to MeetingMate</h1>
+          <p className="text-lg mb-6">
+            Revolutionize your scheduling experience. Discover effortless meeting
+            management tailored for your needs.
           </p>
+          <button className="bg-white text-indigo-600 px-6 py-3 rounded shadow font-bold hover:bg-gray-200">
+            Get Started for Free
+          </button>
         </section>
 
-        {/* Calendar */}
-        <section className="mt-8 bg-white shadow rounded-lg p-6">
-          <h3 className="text-lg font-bold text-gray-800">Your Calendar</h3>
-          <div className="mt-4">
-            <Calendar 
-              className="mx-auto" 
-              onChange={setDate} 
-              value={date}  // Pass the current selected date
-            />
-          </div>
-        </section>
-
-        {/* Quick Actions */}
-        <section className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white shadow rounded-lg p-6">
-            <h3 className="text-lg font-bold text-gray-800">Create Event</h3>
-            <p className="text-gray-600 mt-2">Schedule a new event for your team or clients.</p>
-            <button className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
-              Create Event
-            </button>
-          </div>
-          <div className="bg-white shadow rounded-lg p-6">
-            <h3 className="text-lg font-bold text-gray-800">Manage Availability</h3>
-            <p className="text-gray-600 mt-2">Set your available time slots for meetings.</p>
-            <button className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
-              Update Availability
-            </button>
-          </div>
-          <div className="bg-white shadow rounded-lg p-6">
-            <h3 className="text-lg font-bold text-gray-800">Invite Team</h3>
-            <p className="text-gray-600 mt-2">Add team members to collaborate on scheduling.</p>
-            <button className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
-              Invite Now
-            </button>
+        {/* Features Section */}
+        <section>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            Why Choose MeetingMate?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white shadow rounded-lg p-6 text-center">
+              <h3 className="text-lg font-bold text-gray-800">Easy Scheduling</h3>
+              <p className="text-gray-600 mt-2">
+                Schedule meetings effortlessly with a few clicks.
+              </p>
+            </div>
+            <div className="bg-white shadow rounded-lg p-6 text-center">
+              <h3 className="text-lg font-bold text-gray-800">Collaborative Tools</h3>
+              <p className="text-gray-600 mt-2">
+                Invite team members and manage availability seamlessly.
+              </p>
+            </div>
+            <div className="bg-white shadow rounded-lg p-6 text-center">
+              <h3 className="text-lg font-bold text-gray-800">24/7 Availability</h3>
+              <p className="text-gray-600 mt-2">
+                Always accessible to manage your schedule on the go.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Upcoming Meetings */}
-        <section className="mt-8 bg-white shadow rounded-lg p-6">
-          <h3 className="text-lg font-bold text-gray-800">Upcoming Meetings</h3>
-          <div className="mt-4">
-            <ul>
-              <li className="border-b py-4 flex justify-between">
-                <span>Team Sync - Monday, 10 AM</span>
-                <button className="text-indigo-600 hover:underline">View</button>
-              </li>
-              <li className="border-b py-4 flex justify-between">
-                <span>Client Call - Wednesday, 2 PM</span>
-                <button className="text-indigo-600 hover:underline">View</button>
-              </li>
-              <li className="py-4 flex justify-between">
-                <span>Strategy Meeting - Friday, 11 AM</span>
-                <button className="text-indigo-600 hover:underline">View</button>
-              </li>
-            </ul>
+        {/* Calendar Section */}
+        <section>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            Interactive Calendar
+          </h2>
+          <div className="bg-white shadow rounded-lg p-6">
+            <Calendar className="mx-auto" onChange={setDate} value={date} />
           </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="bg-gray-50 shadow rounded-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            What Our Users Say
+          </h2>
+          <div className="space-y-6">
+            <div className="p-6 bg-white shadow rounded-lg">
+              <p className="text-gray-600">
+                "MeetingMate has transformed how I schedule my meetings. It's a game
+                changer for productivity!"
+              </p>
+              <p className="mt-2 text-right text-indigo-600 font-bold">
+                - Jane Doe, Freelancer
+              </p>
+            </div>
+            <div className="p-6 bg-white shadow rounded-lg">
+              <p className="text-gray-600">
+                "The collaborative tools are fantastic. Our team syncs have never been
+                easier to organize."
+              </p>
+              <p className="mt-2 text-right text-indigo-600 font-bold">
+                - John Smith, Team Lead
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="bg-white shadow rounded-lg p-6">
+            <details className="mb-4">
+              <summary className="font-bold text-gray-800 cursor-pointer">
+                How do I create an account?
+              </summary>
+              <p className="mt-2 text-gray-600">
+                Creating an account is simple. Click on "Get Started for Free" and
+                follow the instructions.
+              </p>
+            </details>
+            <details className="mb-4">
+              <summary className="font-bold text-gray-800 cursor-pointer">
+                Can I integrate MeetingMate with other tools?
+              </summary>
+              <p className="mt-2 text-gray-600">
+                Yes, MeetingMate supports integrations with popular tools like Google
+                Calendar and Outlook.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        {/* Call-to-Action Section */}
+        <section className="bg-indigo-600 text-white rounded-lg shadow p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            Start Your Scheduling Journey Today
+          </h2>
+          <button className="bg-white text-indigo-600 px-6 py-3 rounded shadow font-bold hover:bg-gray-200">
+            Sign Up Now
+          </button>
         </section>
       </main>
 
       {/* Footer */}
-      <Footer />  {/* Use Footer component */}
+      <Footer />
     </div>
   );
 };
