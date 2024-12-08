@@ -46,7 +46,8 @@ exports.login = async (req, res) => {
       console.error('Login Error:', error);
       res.status(500).json({ message: 'Internal server error' });
     }
-  };
+  }; 
+  
 
   exports.logout = (req, res) => {
     // Clear the authentication cookie
