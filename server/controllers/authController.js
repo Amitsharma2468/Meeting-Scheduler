@@ -17,7 +17,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
   
-    const token = generateToken({ id: user.id, role: user.role });
+    const token = generateToken({ id: user.id });
     res.cookie('token', token, {
         httpOnly: true, // Prevents client-side scripts from accessing the cookie
         secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
