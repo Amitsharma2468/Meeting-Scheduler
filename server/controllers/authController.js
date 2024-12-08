@@ -18,5 +18,24 @@ exports.login = async (req, res) => {
     }
   
     const token = generateToken({ id: user.id, role: user.role });
-    res.json({ token });
+    res.cookie('token', token, {
+        httpOnly: true, // Prevents client-side scripts from accessing the cookie
+        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+        sameSite: 'strict', // Prevents CSRF attacks
+        maxAge: 24 * 60 * 60 * 1000, // 1 day expiration
+      });
+    
+      res.json({ message: 'Logged in successfully', token });
+    
+  };
+
+  exports.logout = (req, res) => {
+    // Clear the authentication cookie
+    res.clearCookie('token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+    });
+  
+    res.json({ message: 'Logged out successfully' });
   };
