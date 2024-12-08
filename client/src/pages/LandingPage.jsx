@@ -10,19 +10,31 @@ const LandingPage = () => {
       <Navbar/>
 
       {/* Hero Section */}
-      <section className="text-center py-20 bg-white">
-        <div className="container mx-auto">
-          <h1 className="text-5xl font-bold leading-tight mb-6 text-gray-900">
-            Schedule Your Meetings with Ease
-          </h1>
-          <p className="text-lg mb-8 text-gray-600">
-            Organize your time efficiently, book appointments, and manage your meetings seamlessly.
-          </p>
-          <a href="/signIn" className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-green-700">
-            Get Started
-          </a>
-        </div>
-      </section>
+     <section
+  className="text-center py-20 bg-cover bg-center"
+  style={{
+    backgroundImage: "url('https://media.istockphoto.com/id/2037006388/photo/technology-and-financial-advisory-services-concept-business-teamwork-and-working-on-digital.jpg?s=612x612&w=0&k=20&c=4zt4f-9rVD9Q_8ii_ijAmpHnzhrxWZHWNQ5ZmL8bo2Y=')",
+    backgroundSize: 'cover', // Ensures the image covers the section fully
+    backgroundPosition: 'center', // Centers the image
+  }}
+>
+  <div className="container mx-auto">
+    <h1 className="text-5xl font-bold leading-tight mb-6 text-white">
+      Schedule Your Meetings with Ease
+    </h1>
+    <p className="text-lg mb-8 text-white opacity-80">
+      Organize your time efficiently, book appointments, and manage your meetings seamlessly.
+    </p>
+    <a
+      href="/signIn"
+      className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-green-700"
+    >
+      Get Started
+    </a>
+  </div>
+</section>
+
+
 
       {/* Features Section */}
       <section className="py-16 bg-gray-50">
