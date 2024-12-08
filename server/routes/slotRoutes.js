@@ -15,9 +15,9 @@ router.get('/slots', getAvailableSlots);
 router.post('/book', authenticate, authorize('guest'), bookSlot);
 
 // Route to update a slot (only accessible by hosts)
-router.put('/slots/:id', authenticate, authorize('host'), updateSlot);
+router.put('/slots/:id', authenticate, updateSlot);
 
 // Route to delete a slot (only accessible by hosts)
-router.delete('/slots/:id', authenticate, authorize('host'), deleteSlot);
+router.delete('/slots/:id', authenticate,  deleteSlot);
 
 module.exports = router;

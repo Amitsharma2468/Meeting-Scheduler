@@ -16,7 +16,16 @@ exports.createSlot = async (req, res) => {
     const endTimeUTC = new Date(endTime).toISOString();
 
     
-    await Slot.create(host_id, startTimeUTC, endTimeUTC);
+    const newSlot = await Slot.create(host_id, startTimeUTC, endTimeUTC);
+
+    console.log("New Slot Created:", {
+        id: newSlot.id,
+        host_id: newSlot.host_id,
+        start_time: newSlot.start_time,
+        end_time: newSlot.end_time,
+        created_at: newSlot.created_at,
+        updated_at: newSlot.updated_at,
+      });
     
 
     res.status(201).json({ message: 'Slot created successfully' });
