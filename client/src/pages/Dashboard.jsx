@@ -1,34 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import Navbar from "./Navbar";  // Import Navbar
+import Footer from "./Footer";  // Import Footer
+import Calendar from 'react-calendar';  // Import the Calendar component
+import 'react-calendar/dist/Calendar.css'; // Import Calendar styles
 
 const Dashboard = () => {
+  const [date, setDate] = useState(new Date());  // Set state to manage calendar date
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar */}
-      <header className="bg-white shadow">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-indigo-600">MeetingMate</h1>
-          <nav className="space-x-4">
-            <a href="#" className="text-gray-600 hover:text-indigo-600">
-              Home
-            </a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600">
-              Team
-            </a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600">
-              Settings
-            </a>
-          </nav>
-        </div>
-      </header>
+      <Navbar />  {/* Use Navbar component */}
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
+        {/* Profile Picture */}
+        <section className="bg-white shadow rounded-lg p-6 mb-8 flex items-center space-x-4">
+          <img 
+            src="https://via.placeholder.com/100" 
+            alt="Profile" 
+            className="w-24 h-24 rounded-full object-cover"
+          />
+          <div>
+            <h2 className="text-xl font-bold text-gray-800">Welcome, User!</h2>
+            <p className="text-gray-600 mt-2">Here’s your personalized dashboard.</p>
+          </div>
+        </section>
+
         {/* Welcome Section */}
         <section className="bg-white shadow rounded-lg p-6">
           <h2 className="text-xl font-bold text-gray-800">Welcome to MeetingMate!</h2>
           <p className="text-gray-600 mt-2">
             Plan your day and manage your meetings efficiently with MeetingMate.
           </p>
+        </section>
+
+        {/* Calendar */}
+        <section className="mt-8 bg-white shadow rounded-lg p-6">
+          <h3 className="text-lg font-bold text-gray-800">Your Calendar</h3>
+          <div className="mt-4">
+            <Calendar 
+              className="mx-auto" 
+              onChange={setDate} 
+              value={date}  // Pass the current selected date
+            />
+          </div>
         </section>
 
         {/* Quick Actions */}
@@ -79,11 +95,7 @@ const Dashboard = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-4">
-        <div className="container mx-auto px-4 text-center">
-          <p>&copy; {new Date().getFullYear()} MeetingMate. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />  {/* Use Footer component */}
     </div>
   );
 };
