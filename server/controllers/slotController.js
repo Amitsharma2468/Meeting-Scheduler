@@ -3,7 +3,7 @@ const Booking = require('../models/Booking');
 
 
 exports.createSlot = async (req, res) => {
-  const { startTime, endTime } = req.body;
+  const {host_id, startTime, endTime } = req.body;
 
   
   if (!startTime || !endTime) {
@@ -16,7 +16,7 @@ exports.createSlot = async (req, res) => {
     const endTimeUTC = new Date(endTime).toISOString();
 
     
-    await Slot.create(req.user.id, startTimeUTC, endTimeUTC);
+    await Slot.create(host_id, startTimeUTC, endTimeUTC);
 
     res.status(201).json({ message: 'Slot created successfully' });
   } catch (error) {

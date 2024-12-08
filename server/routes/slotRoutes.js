@@ -6,7 +6,7 @@ const authorize = require('../middlewares/roleMiddleware');
 const router = express.Router();
 
 // Route for creating a slot (only accessible by hosts)
-router.post('/slots', authenticate, authorize('host'), createSlot);
+router.post('/slots',   createSlot);
 
 // Route to get available slots (for anyone to view)
 router.get('/slots', getAvailableSlots);
